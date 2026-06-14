@@ -129,9 +129,9 @@ class MetricsTracker:
         rate  = self.spike_rate_hz()
         fps   = frames / max(self.elapsed_s(), 0.001)
 
-        print("\n" + "-" * 52)
+        print("\n" + "─" * 52)
         print(f"  NeuroStream Metrics  [{self.elapsed_s():.1f}s]")
-        print("-" * 52)
+        print("─" * 52)
         print(f"  Frames processed  : {frames}")
         print(f"  Pipeline FPS      : {fps:.1f}")
         print(f"  Total spikes      : {spikes:,}")
@@ -140,16 +140,16 @@ class MetricsTracker:
         print(f"  Detections        : {detects}")
         print(f"  Sparsity          : {spar * 100:.1f}%")
         print(f"  MAC savings       : {saved * 100:.1f}%  (vs dense baseline)")
-        print("-" * 52)
+        print("─" * 52)
 
     def print_summary(self) -> None:
-        print("\n" + "=" * 52)
+        print("\n" + "═" * 52)
         print("  FINAL SUMMARY")
         self._print_live()
-        print("=" * 52)
+        print("═" * 52)
 
     def snapshot(self) -> dict:
-        """Return current metrics as a dict (for alert_handler etc.)."""
+        """Return current metrics as a dict (for alert_handler / HUD etc.)."""
         return {
             "frames"     : self._frames_total,
             "spikes"     : self._spikes_total,
